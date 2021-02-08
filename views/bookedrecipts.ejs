@@ -1,0 +1,21 @@
+<%- include ('./partials/header')%>
+<h3>Recipts Page!</h3>
+
+    <div class="jumbotron">
+        <p>Name :<%= recipt.name.toUpperCase()%> </p>
+        <p>Contact number : <%= recipt.mob %></p>
+        <p>Booking Time :<%= recipt.time %></p>
+        <p>Booking Date :<%= recipt.time %></p>
+        <p>Description :<em><%= recipt.description %></em></p>
+        <p>Day of Visit :<%= recipt.day%> </p>
+        <div>
+            <p>Status: Pending</p>
+        </div>
+    
+    </div>
+
+<a href="/bookings" class="btn btn-warning">Go Back</a>
+   
+
+   
+<%- include ('./partials/footer')%>

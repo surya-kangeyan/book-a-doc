@@ -1,0 +1,46 @@
+<%- include ('./partials/header') %>
+<div class="register">
+    <div class="container">
+        <div class="jumbotron">
+            <h4> Welcome to  the Registration Page</h4>
+
+            <form action="/registerdocter" method="POST">
+                <div>
+                    <label>Firstname:
+                         <input type="text" placeholder="Firstname" name="firstname">
+                    </label>
+                </div>
+                <div>
+                    <label>Lastname:
+                         <input type="text" placeholder="Lastname" name="lastname">
+                    </label>
+                </div>
+                <div>
+                    <label>Speciality:
+                         <input type="text" placeholder="Speciality" name="speciality">
+                    </label>
+                </div>
+                <div>
+                    <label>Experience:
+                         <input type="text" placeholder="Experience" name="experience">
+                    </label>
+                </div>
+           
+                <div>
+                    <label>Username:
+                        <input type="text" placeholder="username" name="username">
+                    </label>
+                </div>
+                <div>
+                    <label>Password:
+                        <input type="password" placeholder="password" name="password">
+                    </label>
+                </div>
+            
+            <button class="btn btn-sm btn-warning">Submit</button> 
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include ('./partials/footer') %>

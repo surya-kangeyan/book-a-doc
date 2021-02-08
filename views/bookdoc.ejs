@@ -1,0 +1,54 @@
+<%- include ('./partials/header')%>
+<div class="bookdoc">
+    <div class="jumbotron">
+    
+        <div class="heading">
+            <p>Welcome <em><strong><%=loggeduser.firstname.toUpperCase()%> <%=loggeduser.lastname.toUpperCase()%></strong></em> 😊</p>
+        </div>
+    
+       <% doctor.forEach(function(doc){%>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Dr. <%= doc.firstname.toUpperCase() %> <%= doc.lastname.toUpperCase() %></h5>
+                         
+                          <h6>
+                             <label>
+                                Speciality:
+                
+                             </label> 
+                             <%=doc.speciality.toUpperCase() %> 
+                          </h6>
+                          <h6>
+                            <label>
+                                Experience:
+                            </label>
+                            <%= doc.experience %> Years
+                          </h6>
+                          
+                          
+                          <a class="btn btn-sm btn-dark" href="/bookings/<%= doc._id %>">Book  </a>
+                        </div>
+                      </div>
+                </div>
+                </div>
+                   
+        </div>
+        
+        
+              
+            
+          
+        <%});%>
+         
+                  <div style="font-weight:500 ; margin-left:15px;margin-top:10px ">
+                    <a style="font-weight:500" class="btn btn-sm btn-warning" href="/recipts">View Recipts</a>
+                  </div>
+                      
+       
+    </div>
+</div>
+
+  <%- include ('./partials/footer')%>

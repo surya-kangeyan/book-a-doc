@@ -1,0 +1,55 @@
+<%- include ('./partials/header')%>
+<h1 style="margin-left:400px">
+    
+        Recipts Page!
+  
+     </h1>
+<div class="docrecipts">
+    
+    <div class="container">
+        
+           
+            <% a=recipts.reverse()%>
+            <% a.forEach(function(recipts){%>
+                <div class="jumbotron">
+                    <p>Name : <%= recipts.name.toUpperCase()%> </p>
+                    <p>Contact number : <%= recipts.mob %></p>
+                   
+                    <p>Booking Date : <%= recipts.date.toLocaleDateString('en-US') %></p>
+                    <p>Description : <em><%= recipts.description %></em></p>
+                    <p>Status : <%if(recipts.status=="Approved"){%>
+                                    <button style="font-weight:500" class="btn btn-sm btn-success"> <%= recipts.status %></button>
+                              <%}%>
+                                <%if(recipts.status=="Rejected"){%>
+                                    <button style="font-weight:500" class="btn btn-sm btn-danger"> <%= recipts.status %></button>
+                             <%}%>
+                                <%if(recipts.status=="Pending"){%>
+                                    <button style="font-weight:500" class="btn btn-sm btn-warning"> <%= recipts.status %></button>
+                             <%}%></p>
+                    <% if(recipts.status=="Pending"){ %>
+                        <p>Date of Visit : Wait For Doctor Approval </p>
+                        <p>Time of Visit : Wait For Doctor Approval </p>
+                     <% } %>
+                       <% if(recipts.status=="Approved"){ %>
+                        <p>Date of Visit : <%= recipts.appoint_date%> </p>
+                        <p>Time of Visit : <%= recipts.appoint_time%> </p>
+                    <%}%>
+                      <% if(recipts.status=="Rejected"){%>
+                        <p>Reason For Rejection : <%=recipts.reason %></p>
+                    <%}%>
+            
+                    <form method="POST" action="/doctor/recipt/approved/<%= recipts.mob %>/<%= recipts._id %>">
+                        <button id="button" type="submit" class="btn btn-success">Approve</button>
+                    </form>
+                    <form method="POST" action="/doctor/recipt/rejected/<%= recipts.mob %>/<%= recipts._id %>">
+                        <button style="margin-top:10px;" id="button" type="submit" class="btn btn-danger">Reject</button>
+                    </form>
+                   
+                </div>
+            <%})%>
+            <a style="margin-left:30px" href="/doctor" class="btn btn-warning">Reload</a>
+        </div>
+    </div>
+
+
+<%- include ('./partials/footer')%>

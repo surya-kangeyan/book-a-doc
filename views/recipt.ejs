@@ -1,0 +1,48 @@
+<%- include ('./partials/header')%>
+<div class="recipts">
+    <div class="container">
+        <h1 style="text-align:center">Recipts Page!</h1>
+        <% var a = recipts.reverse()%>
+        <% a.forEach(function(recipts){%>
+            <div class="jumbotron">
+                <p>Name :<%= recipts.name.toUpperCase()%> </p>
+                <p>Contact number : <%= recipts.mob %></p>
+                <p>Booking Date : <%= recipts.date.toLocaleDateString('en-US') %></p>
+
+
+                <p>Description : <em><%= recipts.description.toUpperCase() %></em></p>
+                <p>Status: <%if(recipts.status=="Approved"){%>
+                            <button style="font-weight:500" class="btn btn-sm btn-success"> <%= recipts.status %></button>
+                    <%}%>
+                    <%if(recipts.status=="Rejected"){%>
+                        <button style="font-weight:500" class="btn btn-sm btn-danger"> <%= recipts.status %></button>
+                    <%}%>
+                    <%if(recipts.status=="Pending"){%>
+                        <button style="font-weight:500" class="btn btn-sm btn-warning"> <%= recipts.status %></button>
+                        <%}%>
+                     
+                <% if(recipts.status=="Pending"){ %>
+                    <p>Date of Visit : Wait For Doctor Approval </p>
+                    <p>Time of Visit : Wait For Doctor Approval </p>
+                 <% } %>
+                   <% if(recipts.status=="Approved"){ %>
+                    <p>Date of Visit :<%= recipts.appoint_date%> </p>
+                    <p>Time of Visit :<%= recipts.appoint_time%> </p>
+                <%}%>
+                  <% if(recipts.status=="Rejected"){%>
+                    <p>Reason For Rejection:<%=recipts.reason %></p>
+                <%}%>
+
+
+
+
+            </div>
+        <%});%>
+        <a style="margin-left:300px"href="/bookdoc" class="btn btn-warning">Go Back</a>
+
+    </div>
+</div>
+
+
+
+<%- include ('./partials/footer')%>

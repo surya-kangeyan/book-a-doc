@@ -1,0 +1,49 @@
+<%- include ('./partials/header')%>
+<div class="bookings">
+    <div class="container">
+    <div class="jumbotron">
+
+      
+    
+            <div class="head">
+                <p>Welcome <em><strong><%=loggeduser.firstname.toUpperCase()%> <%=loggeduser.lastname.toUpperCase()%></strong></em></p>
+            </div>
+            
+          
+            <form action="/bookings" method="POST">
+                <input type="hidden" value="<%= id %>" name="doc">
+                <div>
+                    <label>Name :
+                       
+                            <input  type="text" value="<%=loggeduser.firstname%> <%=loggeduser.lastname%>" name="tname" ></label>
+                        
+                        
+                </div>
+               <div>
+                <label>
+                    Contact number:
+                 <input  type="number" placeholder="Mob.No" name="mob"> 
+                </label>
+               </div>
+               <div class="desc">
+                <label>
+                    Description:
+                    <input type="text" placeholder="Description" name="description">
+                </label>
+               </div>
+              
+                <div style="margin-top:10px">
+                    <button style="border:1.5px solid black" class="btn btn-sm btn-success">Book</button>
+                    <a style="border:1.5px solid black" href="/" class="btn btn-sm btn-warning">Go Back</a>
+                </div>
+                
+            </form>
+        </div>
+          
+        
+        
+       
+    </div>
+</div>
+
+  <%- include ('./partials/footer')%>
