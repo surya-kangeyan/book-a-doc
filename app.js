@@ -304,6 +304,6 @@ function isLoggedIn(req, res, next){
 
 
 
-app.listen(Process.env.port||3000,function(res,res){
+app.listen(process.env.port,function(res,res){
 console.log("BOOK-A-DOC App Has Started !!");
 });
