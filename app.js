@@ -12,7 +12,7 @@ var express = require("express"),
     bodyParser=require("body-parser"),
     User = require("./models/user");
 var override = require("method-override");
-mongoose.connect("mongodb+srv://surya:surya@doctor.hqmdb.mongodb.net/BOOK-A-DOC?retryWrites=true&w=majority", { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect("mongodb+srv://surya:surya@doctor.hqmdb.mongodb.net/kangeyan?retryWrites=true&w=majority", { useUnifiedTopology: true, useNewUrlParser: true });
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.bodyParser());
